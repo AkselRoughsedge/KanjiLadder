@@ -1,0 +1,11 @@
+{
+  "name": "kanji-ladder",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Kanji and vocabulary SRS with daily graded stories and audio, as an installable web app.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "check": "node --check public/app.js && node --check public/sw.js && node --check api/claude.js"
+  }
+}
