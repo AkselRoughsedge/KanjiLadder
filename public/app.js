@@ -388,12 +388,15 @@ async function saveHook(ch, text) {
 }
 async function makeHook(ch) {
   const k = DATA.kanji[ch];
-  const prompt = "Write a memory hook for a Japanese learner (around JLPT N4-N3) for the kanji " + ch + ".\n" +
-    "Meanings: " + k.m.join(", ") + "\nOn'yomi: " + (onList(k).join("、") || "none") + "\nKun'yomi: " + (kunList(k).join("、") || "none") + "\n\n" +
-    "Format: 2 or 3 short sentences, under 60 words, plain text, no headings or lists.\n" +
-    "1) Name the quickest visual feature of the shape, breaking it into components with simple English names (for example 耂 = old man, 宀 = roof, 氵 = water).\n" +
-    "2) A short vivid story that ties that shape to the meaning \"" + k.m[0] + "\".\n" +
-    "Wrap the 1 to 3 most important words in **double asterisks**. Reply with only the hook.";
+  // Visual hooks: either a picture of the whole shape, or a story acted out by its real parts (KRADFILE list in k.r)
+  const prompt = "Write a memory hook for the kanji " + ch + " for a learner who remembers kanji by how they look.\n" +
+    "Meanings: " + k.m.join(", ") + "\n" +
+    (k.r && k.r.length ? "Visible parts (a dictionary list of every part, including single strokes; group them into the meaningful pieces): " + k.r.join(" ") + "\n" : "") +
+    "\nUse whichever works better for this kanji:\n" +
+    "A) Picture: describe a vivid image the whole shape looks like and tie it to the meaning (e.g. 山 is three mountain peaks rising from the ground; 人 is a person striding forward).\n" +
+    "B) Parts story: name each meaningful part with a simple English name (e.g. 耂 old man, 宀 roof, 氵 water, 亻 person, 口 mouth, 木 tree) and tell a short story where those parts act out the meaning \"" + k.m[0] + "\".\n" +
+    "Say where each part sits (top, bottom, left, right, inside) so the story maps onto the shape. Only use parts that are really in " + ch + "; never invent one.\n" +
+    "Format: 2 to 4 short sentences, under 70 words, plain text, no headings, lists or readings. Wrap the meaning and the part names in **double asterisks**. Reply with only the hook.";
   const { text } = await sample(prompt, { cache: false });
   return text.trim();
 }

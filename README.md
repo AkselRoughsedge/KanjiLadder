@@ -38,11 +38,12 @@ No build step: Vercel serves `public/` as is.
 ## Updating the content
 - `tools/build_levels.py` builds `data.json` from KANJIDIC2-derived kanji data and JMdict common words (`jmdict-simplified`). Level order: mostly usage frequency, then stroke count and school grade.
 - `tools/main_readings.py` picks each kanji's main reading from how common words read it, and drops word cards that would repeat it.
+- `tools/add_components.py` adds each kanji's visual parts (KRADFILE) to `data.json`; memory hooks are built from them.
 - `tools/gen_audio.py` generates the clips with VOICEVOX (voice: No.7, Announce). Credit "VOICEVOX:No.7" must stay visible in the app.
 
 After changing `public/app.js` or `data.json` in a way installed copies must pick up immediately, bump `VERSION` in `public/sw.js`.
 
 ## Data sources and credits
-- Kanji data: KANJIDIC2 (EDRDG, CC BY-SA 4.0) via kanji-data; vocabulary: JMdict (EDRDG, CC BY-SA 4.0) via jmdict-simplified.
+- Kanji data: KANJIDIC2 and KRADFILE (EDRDG, CC BY-SA 4.0) via kanji-data and jmdict-simplified; vocabulary: JMdict (EDRDG, CC BY-SA 4.0) via jmdict-simplified.
 - Audio: VOICEVOX:No.7.
 - Kana input: WanaKana (MIT). Database client: supabase-js (MIT).

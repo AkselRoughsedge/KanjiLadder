@@ -1,6 +1,6 @@
 // Kanji Ladder service worker: makes the app open and run reviews offline.
 // Bump VERSION when shipping app changes that must reach installed copies right away.
-const VERSION = "kl-app-v1";
+const VERSION = "kl-app-v2";
 const AUDIO = "kl-audio-v1";
 const FONTS = "kl-fonts-v1";
 const SHELL = ["/", "/index.html", "/app.js", "/manifest.webmanifest", "/vendor/wanakana.min.js", "/vendor/supabase.js", "/data.json", "/audio/on.json", "/icons/icon-192.png"];
