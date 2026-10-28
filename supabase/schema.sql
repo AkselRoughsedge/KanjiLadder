@@ -69,5 +69,6 @@ insert into public.hooks (id, kanji, text) values
   ('u624b', '手', 'Picture 手 as a **hand** with a long wrist: three horizontal lines are fingers, and one vertical stroke curving at the bottom is the arm. Imagine a waving **hand** reaching up from a sleeve, fingers spread, to grab the **て** (te) of a friend and shake it.'),
   ('u65e5', '日', 'A box with one line across the middle, a window with the **sun** shining in. 目 (eye) is taller, with two lines inside.'),
   ('u6708', '月', 'Like 日 but open at the bottom, with a sweeping left leg and two lines inside: a crescent **moon** hanging in its frame. It also means month.'),
-  ('u672c', '本', '木 (tree) with a short line marking the base of the trunk: the **root** or origin. Trees also become paper, so it means **book**.')
+  ('u672c', '本', '木 (tree) with a short line marking the base of the trunk: the **root** or origin. Trees also become paper, so it means **book**.'),
+  ('u76ee', '目', 'Picture a tall **eye** turned sideways: the outer box is the eye socket, and the two short bars inside are the pupil and eyelid lines. A sleepy giant stacks two pancakes in his socket to hide his tired **eye**, so he can''t **look** at anyone.')
 on conflict (id) do nothing;
